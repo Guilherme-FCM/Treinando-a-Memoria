@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Treinando a Memória</string>
+
+    <array name="signos">
+        <item>@drawable/aries</item>
+        <item>@drawable/touro</item>
+        <item>@drawable/gemios</item>
+        <item>@drawable/cancer</item>
+        <item>@drawable/leao</item>
+        <item>@drawable/virgem</item>
+        <item>@drawable/libra</item>
+        <item>@drawable/escorpiao</item>
+        <item>@drawable/sargitario</item>
+        <item>@drawable/capricornio</item>
+        <item>@drawable/aquario</item>
+        <item>@drawable/peixe</item>
+    </array>
 </resources>
