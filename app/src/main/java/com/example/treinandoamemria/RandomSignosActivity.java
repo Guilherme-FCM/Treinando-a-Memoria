@@ -35,7 +35,11 @@ public class RandomSignosActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
-        textView.setText(name + ", " + textView.getText());
+        textView.setText(
+            name.length() > 0
+            ? name + ", " + textView.getText()
+            : textView.getText()
+        );
 
         TypedArray array = getResources().obtainTypedArray(R.array.signos);
         for (int i = 0; i < array.length(); i++)
