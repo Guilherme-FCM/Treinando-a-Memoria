@@ -23,6 +23,7 @@ public class RandomSignosActivity extends AppCompatActivity {
     private int time = 3000;
     private ImageView imageView;
     private TextView textView;
+    private TextView countdown;
     private ArrayList<Integer> signos = new ArrayList<>();
 
     @Override
@@ -32,6 +33,7 @@ public class RandomSignosActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView);
         imageView = findViewById(R.id.imageView);
+        countdown = findViewById(R.id.countdown);
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
@@ -48,12 +50,45 @@ public class RandomSignosActivity extends AppCompatActivity {
         renderImages();
     }
 
-    private void renderImages() { renderImages(0); }
+    private void renderImages() {
+        renderCountdown();
+        renderImages(0);
+    }
     private void renderImages(int position) {
         if (position < signos.size())
             new Handler().postDelayed(() -> {
                 imageView.setImageResource(signos.get(position));
+
+                this.renderCountdown();
+
                 renderImages(position+1);
             }, time);
     }
+
+    private void renderCountdown() {
+        new Handler().postDelayed(() -> {
+            countdown.setText("3");
+        }, 0);
+
+        new Handler().postDelayed(() -> {
+            countdown.setText("2");
+        }, 1000);
+
+        new Handler().postDelayed(() -> {
+            countdown.setText("1");
+        }, 2000);
+    }
+
+//    private void renderCountdown(int number) {
+//        int cont = 0;
+//        while (cont < number) {
+//            try {
+//                Thread.sleep(1000); // espera 1 segundo
+//                Toast.makeText(this, cont, Toast.LENGTH_SHORT).show();
+//            } catch (InterruptedException e) {
+//                // trata a exceção
+//            }
+//            cont++;
+//        }
+//    }
 }
