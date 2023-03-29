@@ -63,6 +63,9 @@ public class RandomSignosActivity extends AppCompatActivity {
 
                 renderImages(position+1);
             }, time);
+        else {
+            startActivity(new Intent(this, AnswerActivity.class));
+        }
     }
 
     private void renderCountdown() {
