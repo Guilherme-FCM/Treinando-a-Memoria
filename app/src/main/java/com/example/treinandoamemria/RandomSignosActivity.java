@@ -43,7 +43,7 @@ public class RandomSignosActivity extends AppCompatActivity {
             : textView.getText()
         );
 
-        TypedArray array = getResources().obtainTypedArray(R.array.signos);
+        TypedArray array = getResources().obtainTypedArray(R.array.signos_imagens);
         for (int i = 0; i < array.length(); i++)
             signos.add(array.getResourceId(i, 0));
         Collections.shuffle(signos);
@@ -64,7 +64,9 @@ public class RandomSignosActivity extends AppCompatActivity {
                 renderImages(position+1);
             }, time);
         else {
-            startActivity(new Intent(this, AnswerActivity.class));
+            Intent intent = new Intent(this, AnswerActivity.class);
+            intent.putExtra("signos_imagens", signos);
+            startActivity(intent);
         }
     }
 
