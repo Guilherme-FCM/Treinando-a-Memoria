@@ -21,6 +21,7 @@
             android:name=".FormularioActivity"
             android:exported="false" />
         <activity
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -20,7 +20,7 @@ import java.util.TimerTask;
 import java.util.stream.Collectors;
 
 public class RandomSignosActivity extends AppCompatActivity {
-    private int time = 3000;
+    private final int time = 3000;
     private ImageView imageView;
     private TextView textView;
     private TextView countdown;
@@ -81,17 +81,4 @@ public class RandomSignosActivity extends AppCompatActivity {
             countdown.setText("1");
         }, 2000);
     }
-
-//    private void renderCountdown(int number) {
-//        int cont = 0;
-//        while (cont < number) {
-//            try {
-//                Thread.sleep(1000); // espera 1 segundo
-//                Toast.makeText(this, cont, Toast.LENGTH_SHORT).show();
-//            } catch (InterruptedException e) {
-//                // trata a exceção
-//            }
-//            cont++;
-//        }
-//    }
 }
