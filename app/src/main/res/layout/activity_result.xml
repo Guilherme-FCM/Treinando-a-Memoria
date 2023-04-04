@@ -25,6 +25,14 @@
         android:layout_marginBottom="20dp"
         android:text="20 anos de idade"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginBottom="10dp"
+        android:text="Veja seus Acertos:"/>
+
     <ListView
         android:id="@+id/result"
         android:layout_width="match_parent"

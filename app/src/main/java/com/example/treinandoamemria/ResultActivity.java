@@ -30,6 +30,7 @@ public class ResultActivity extends AppCompatActivity {
         String[] originalOrderNames = getResources().getStringArray(R.array.signos_nomes);
         TypedArray originalOrderImages = getResources().obtainTypedArray(R.array.signos_imagens);
 
+        // Compara a ordem aleatória com a selecionada pelo usuário
         ArrayList<String> correctAnswer = new ArrayList<>();
         for (int imageId : randomImages) {
             for (int i = 0; i < originalOrderImages.length(); i++) {
@@ -41,25 +42,28 @@ public class ResultActivity extends AppCompatActivity {
             }
         }
 
-        ListView listView = findViewById(R.id.result);
+        Player player = (Player) it.getSerializableExtra("player");
+
+        // Gera array de resultados
         ArrayList<Result> results = new ArrayList<>();
         for (int i = 0; i < selectedOrder.size(); i++) {
-            results.add(
-                new Result(
-                    selectedOrder.get(i),
-                    selectedOrder.get(i).equals(correctAnswer.get(i))
-                )
-            );
+            boolean equal = selectedOrder.get(i).equals(correctAnswer.get(i));
+            results.add( new Result(selectedOrder.get(i), equal) );
+            if (equal) player.incrementScore(1);
         }
+
+        if (player.getScore() >= player.getBirthMonth())
+            player.incrementScore(player.getBirthMonth() / 2.0);
+
         adapter = new ResultAdapter(this, results);
+        ListView listView = findViewById(R.id.result);
         listView.setAdapter(adapter);
 
-        Player player = (Player) it.getSerializableExtra("player");
 
         TextView nameView = findViewById(R.id.name);
         TextView ageView = findViewById(R.id.age);
 
-        nameView.setText("Parabéns " + player.getName() + "! Veja seus acertos.");
+        nameView.setText("Parabéns " + player.getName() + "! \nSua pontuação foi de " + player.getScore() + " ponto(s).");
         ageView.setText(player.getAge() + " anos de idade");
     }
 }

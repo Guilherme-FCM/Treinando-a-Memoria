@@ -1,6 +1,7 @@
 package com.example.treinandoamemria;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,9 @@ public class ResultAdapter extends BaseAdapter {
         imageView.setImageResource(
                 item.isCorrect() ? R.drawable.correct : R.drawable.incorrect
         );
-        // TODO: Colorir a linha
+        view.setBackgroundColor(
+                item.isCorrect()? Color.GREEN : Color.RED
+        );
         return view;
     }
 }

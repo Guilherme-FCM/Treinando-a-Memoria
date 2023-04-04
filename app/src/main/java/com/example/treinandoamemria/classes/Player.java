@@ -8,6 +8,7 @@ public class Player implements Serializable {
     private int birthDay;
     private int birthMonth;
     private int birthYear;
+    private double score;
 
     public Player(String name, int birthDay, int birthMonth, int birthYear) {
         this.name = name;
@@ -48,8 +49,20 @@ public class Player implements Serializable {
         this.birthYear = birthYear;
     }
 
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
+    }
+
     public int getAge() {
         int anoAtual = Calendar.getInstance().get(Calendar.YEAR);
         return anoAtual - this.birthYear;
+    }
+
+    public void incrementScore(double value) {
+        this.score += value;
     }
 }
