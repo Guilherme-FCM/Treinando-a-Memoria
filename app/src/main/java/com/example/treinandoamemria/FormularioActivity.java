@@ -22,7 +22,7 @@ public class FormularioActivity extends AppCompatActivity {
         Button button = findViewById(R.id.button);
         button.setOnClickListener((view -> {
 
-            Intent intent = new Intent(this, AnswerActivity.class);
+            Intent intent = new Intent(this, RandomSignosActivity.class);
             intent.putExtra("name", name.getText().toString());
             intent.putExtra("day", day.getText().toString());
             intent.putExtra("month", month.getText().toString());

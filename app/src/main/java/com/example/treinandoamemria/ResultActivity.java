@@ -3,6 +3,7 @@ package com.example.treinandoamemria;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -16,10 +17,23 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         Intent it = getIntent();
-        ArrayList<Integer> signos_imagens = it.getIntegerArrayListExtra("signos_imagens");
-        ArrayList<String> signos_nomes = it.getStringArrayListExtra("signos_nomes");
+        ArrayList<Integer> randomImages = it.getIntegerArrayListExtra("signos_imagens");
+        ArrayList<String> selectedOrder = it.getStringArrayListExtra("signos_nomes");
 
-        Toast.makeText(this, signos_imagens.toString(), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, signos_nomes.toString(), Toast.LENGTH_SHORT).show();
+        String[] originalOrderNames = getResources().getStringArray(R.array.signos_nomes);
+        TypedArray originalOrderImages = getResources().obtainTypedArray(R.array.signos_imagens);
+
+        ArrayList<String> correctAnswer = new ArrayList<>();
+        for (int imageId : randomImages) {
+            for (int j = 0; j < originalOrderImages.length(); j++) {
+                int id = originalOrderImages.getResourceId(j, 0);
+                if (id == imageId) {
+                    correctAnswer.add(originalOrderNames[j]);
+                    break;
+                }
+            }
+        }
+
+
     }
 }

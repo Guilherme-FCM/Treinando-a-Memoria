@@ -20,7 +20,7 @@ import java.util.TimerTask;
 import java.util.stream.Collectors;
 
 public class RandomSignosActivity extends AppCompatActivity {
-    private final int time = 3000;
+    private final int time = 1000;
     private ImageView imageView;
     private TextView textView;
     private TextView countdown;
@@ -37,6 +37,9 @@ public class RandomSignosActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
+        String day = intent.getStringExtra("day");
+        String month = intent.getStringExtra("month");
+        String year = intent.getStringExtra("year");
         textView.setText(
             name.length() > 0
             ? name + ", " + textView.getText()
@@ -75,12 +78,12 @@ public class RandomSignosActivity extends AppCompatActivity {
             countdown.setText("3");
         }, 0);
 
-        new Handler().postDelayed(() -> {
-            countdown.setText("2");
-        }, 1000);
-
-        new Handler().postDelayed(() -> {
-            countdown.setText("1");
-        }, 2000);
+//        new Handler().postDelayed(() -> {
+//            countdown.setText("2");
+//        }, 1000);
+//
+//        new Handler().postDelayed(() -> {
+//            countdown.setText("1");
+//        }, 2000);
     }
 }
