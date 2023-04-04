@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-// TODO: Colocar os Spinners em TableView (de 2 em 2)
 public class AnswerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private ArrayAdapter<CharSequence> adapter;
     private ArrayList<String> selectedSignos = new ArrayList<>();
