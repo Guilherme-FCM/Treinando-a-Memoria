@@ -41,9 +41,11 @@ public class ResultAdapter extends BaseAdapter {
         view = inflater.inflate(R.layout.result_list_view, null);
 
         Result item = data.get(i);
+        TextView position = view.findViewById(R.id.position);
         TextView textView = view.findViewById(R.id.textView);
         ImageView imageView = view.findViewById(R.id.imageView);
 
+        position.setText((i + 1) + "°");
         textView.setText(item.getSigno());
         imageView.setImageResource(
                 item.isCorrect() ? R.drawable.correct : R.drawable.incorrect

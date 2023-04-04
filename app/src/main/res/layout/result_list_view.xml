@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:stretchColumns="*"
+    android:stretchColumns="5"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <TableRow
         android:layout_marginVertical="10dp">
+        <TextView
+            android:id="@+id/position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1°"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_weight="1"/>
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="signo"
             android:gravity="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_weight="2"/>
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/correct" />
+            android:src="@drawable/correct"
+            android:layout_weight="2"/>
     </TableRow>
 </TableLayout>
