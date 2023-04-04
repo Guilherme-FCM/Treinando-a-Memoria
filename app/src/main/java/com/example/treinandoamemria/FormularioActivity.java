@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.treinandoamemria.classes.Player;
+
 public class FormularioActivity extends AppCompatActivity {
 
     @Override
@@ -21,12 +23,14 @@ public class FormularioActivity extends AppCompatActivity {
 
         Button button = findViewById(R.id.button);
         button.setOnClickListener((view -> {
-
             Intent intent = new Intent(this, RandomSignosActivity.class);
-            intent.putExtra("name", name.getText().toString());
-            intent.putExtra("day", day.getText().toString());
-            intent.putExtra("month", month.getText().toString());
-            intent.putExtra("year", year.getText().toString());
+            Player player = new Player(
+                    name.getText().toString(),
+                    Integer.parseInt(day.getText().toString()),
+                    Integer.parseInt(month.getText().toString()),
+                    Integer.parseInt(year.getText().toString())
+            );
+            intent.putExtra("player", player);
             startActivity(intent);
         }));
     }

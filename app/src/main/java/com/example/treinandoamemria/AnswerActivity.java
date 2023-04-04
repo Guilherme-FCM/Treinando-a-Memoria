@@ -49,11 +49,10 @@ public class AnswerActivity extends AppCompatActivity implements AdapterView.OnI
         Button button = findViewById(R.id.button);
         button.setOnClickListener((view) -> {
             Intent it = getIntent();
-            ArrayList<Integer> signos_imagens = it.getIntegerArrayListExtra("signos_imagens");
-
             Intent intent = new Intent(this, ResultActivity.class);
-            intent.putExtra("signos_imagens", signos_imagens);
-            intent.putExtra("signos_nomes", selectedSignos);
+            intent.putExtra("selected_signos", selectedSignos);
+            intent.putExtra("random_signos", it.getIntegerArrayListExtra("random_signos"));
+            intent.putExtra("player", it.getSerializableExtra("player"));
             startActivity(intent);
         });
     }

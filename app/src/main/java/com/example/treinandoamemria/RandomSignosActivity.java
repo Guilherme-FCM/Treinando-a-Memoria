@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.treinandoamemria.classes.Player;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -36,15 +38,9 @@ public class RandomSignosActivity extends AppCompatActivity {
         countdown = findViewById(R.id.countdown);
 
         Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
-        String day = intent.getStringExtra("day");
-        String month = intent.getStringExtra("month");
-        String year = intent.getStringExtra("year");
-        textView.setText(
-            name.length() > 0
-            ? name + ", " + textView.getText()
-            : textView.getText()
-        );
+        Player player = (Player) intent.getSerializableExtra("player");
+        if (player.getName().length() > 0)
+            textView.setText(player.getName() + ", memorize a ordem dos signos!");
 
         TypedArray array = getResources().obtainTypedArray(R.array.signos_imagens);
         for (int i = 0; i < array.length(); i++)
@@ -67,8 +63,10 @@ public class RandomSignosActivity extends AppCompatActivity {
                 renderImages(position+1);
             }, time);
         else {
+            Intent it = getIntent();
             Intent intent = new Intent(this, AnswerActivity.class);
-            intent.putExtra("signos_imagens", signos);
+            intent.putExtra("random_signos", signos);
+            intent.putExtra("player", it.getSerializableExtra("player"));
             startActivity(intent);
         }
     }

@@ -6,10 +6,13 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.treinandoamemria.classes.Player;
 import com.example.treinandoamemria.classes.Result;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ResultActivity extends AppCompatActivity {
@@ -21,8 +24,8 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         Intent it = getIntent();
-        ArrayList<Integer> randomImages = it.getIntegerArrayListExtra("signos_imagens");
-        ArrayList<String> selectedOrder = it.getStringArrayListExtra("signos_nomes");
+        ArrayList<Integer> randomImages = it.getIntegerArrayListExtra("random_signos");
+        ArrayList<String> selectedOrder = it.getStringArrayListExtra("selected_signos");
 
         String[] originalOrderNames = getResources().getStringArray(R.array.signos_nomes);
         TypedArray originalOrderImages = getResources().obtainTypedArray(R.array.signos_imagens);
@@ -50,5 +53,13 @@ public class ResultActivity extends AppCompatActivity {
         }
         adapter = new ResultAdapter(this, results);
         listView.setAdapter(adapter);
+
+        Player player = (Player) it.getSerializableExtra("player");
+
+        TextView nameView = findViewById(R.id.name);
+        TextView ageView = findViewById(R.id.age);
+
+        nameView.setText("Parabéns " + player.getName() + "! Veja seus acertos.");
+        ageView.setText(player.getAge() + " anos de idade");
     }
 }
