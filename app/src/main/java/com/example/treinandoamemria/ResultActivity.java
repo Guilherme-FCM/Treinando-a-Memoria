@@ -47,9 +47,9 @@ public class ResultActivity extends AppCompatActivity {
         // Gera array de resultados
         ArrayList<Result> results = new ArrayList<>();
         for (int i = 0; i < selectedOrder.size(); i++) {
-            boolean equal = selectedOrder.get(i).equals(correctAnswer.get(i));
-            results.add( new Result(selectedOrder.get(i), equal) );
-            if (equal) player.incrementScore(1);
+            Result result = new Result(selectedOrder.get(i), correctAnswer.get(i));
+            results.add(result);
+            if (result.isCorrect()) player.incrementScore(1);
         }
 
         if (player.getScore() >= player.getBirthMonth())

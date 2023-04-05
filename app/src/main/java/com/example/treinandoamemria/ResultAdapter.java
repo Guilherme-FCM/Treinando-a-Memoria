@@ -43,17 +43,17 @@ public class ResultAdapter extends BaseAdapter {
 
         Result item = data.get(i);
         TextView position = view.findViewById(R.id.position);
-        TextView textView = view.findViewById(R.id.textView);
+        TextView answerView = view.findViewById(R.id.answer);
+        TextView correctView = view.findViewById(R.id.correct);
         ImageView imageView = view.findViewById(R.id.imageView);
 
         position.setText((i + 1) + "°");
-        textView.setText(item.getSigno());
+        answerView.setText(item.getAnswer());
+        correctView.setText(item.getCorrect());
         imageView.setImageResource(
                 item.isCorrect() ? R.drawable.correct : R.drawable.incorrect
         );
-        view.setBackgroundColor(
-                item.isCorrect()? Color.GREEN : Color.RED
-        );
         return view;
+        // TODO: Alinhas os itens na tabela
     }
 }

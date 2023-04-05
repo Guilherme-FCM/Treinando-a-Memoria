@@ -1,27 +1,31 @@
 package com.example.treinandoamemria.classes;
 
 public class Result {
-    private String signo;
-    private boolean correct;
+    private String answer;
+    private String correct;
 
-    public Result(String signo, boolean correct) {
-        this.signo = signo;
+    public Result(String answer, String correct) {
+        this.answer = answer;
         this.correct = correct;
     }
 
-    public String getSigno() {
-        return signo;
+    public String getAnswer() {
+        return answer;
     }
 
-    public void setSigno(String signo) {
-        this.signo = signo;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
-    public boolean isCorrect() {
+    public String getCorrect() {
         return correct;
     }
 
-    public void setCorrect(boolean correct) {
+    public void setCorrect(String correct) {
         this.correct = correct;
+    }
+
+    public boolean isCorrect() {
+        return this.answer.equals(this.correct);
     }
 }
