@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.treinandoamemria.classes.Player;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class FormularioActivity extends AppCompatActivity {
@@ -42,6 +43,7 @@ public class FormularioActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, RandomSignosActivity.class);
                 Player player = new Player(name, day, month, year);
                 intent.putExtra("player", player);
+                intent.putExtra("players", getIntent().getSerializableExtra("players"));
                 startActivity(intent);
             } catch (Exception e) {
                 Toast.makeText(this, "Os campos devem ser preenchidos adequadamente.", Toast.LENGTH_SHORT).show();

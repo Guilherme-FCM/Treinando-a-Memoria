@@ -13,11 +13,13 @@ import android.widget.Toast;
 
 import com.example.treinandoamemria.classes.Player;
 import com.example.treinandoamemria.classes.Result;
+import com.example.treinandoamemria.dialogs.NextDialogFragment;
 
 import java.util.ArrayList;
 
 public class ResultActivity extends AppCompatActivity {
     private ResultAdapter adapter;
+    private ArrayList<Player> players;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +58,13 @@ public class ResultActivity extends AppCompatActivity {
         if (player.getScore() >= player.getBirthMonth())
             player.incrementScore(player.getBirthMonth() / 2.0);
 
+        players = (ArrayList<Player>) getIntent().getSerializableExtra("players");
+        if (players == null) players = new ArrayList<>();
+        players.add(player);
+
         adapter = new ResultAdapter(this, results);
         ListView listView = findViewById(R.id.result);
         listView.setAdapter(adapter);
-
 
         TextView nameView = findViewById(R.id.name);
         TextView ageView = findViewById(R.id.age);
@@ -78,7 +83,8 @@ public class ResultActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.next:
-                Toast.makeText(this, "Continua", Toast.LENGTH_SHORT).show();
+                NextDialogFragment dialog = new NextDialogFragment(this.players);
+                dialog.show(getSupportFragmentManager(), "next-dialog");
                 return true;
             case R.id.signo:
                 Toast.makeText(this, "Meu signo", Toast.LENGTH_SHORT).show();

@@ -53,6 +53,7 @@ public class AnswerActivity extends AppCompatActivity implements AdapterView.OnI
             intent.putExtra("selected_signos", selectedSignos);
             intent.putExtra("random_signos", it.getIntegerArrayListExtra("random_signos"));
             intent.putExtra("player", it.getSerializableExtra("player"));
+            intent.putExtra("players", it.getSerializableExtra("players"));
             startActivity(intent);
         });
     }

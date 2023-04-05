@@ -68,6 +68,7 @@ public class RandomSignosActivity extends AppCompatActivity {
             Intent intent = new Intent(this, AnswerActivity.class);
             intent.putExtra("random_signos", signos);
             intent.putExtra("player", it.getSerializableExtra("player"));
+            intent.putExtra("players", it.getSerializableExtra("players"));
             startActivity(intent);
         }
     }
