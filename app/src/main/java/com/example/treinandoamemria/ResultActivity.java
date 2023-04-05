@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,7 +14,6 @@ import android.widget.Toast;
 import com.example.treinandoamemria.classes.Player;
 import com.example.treinandoamemria.classes.Result;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ResultActivity extends AppCompatActivity {
@@ -65,5 +66,24 @@ public class ResultActivity extends AppCompatActivity {
 
         nameView.setText("Parabéns " + player.getName() + "! \nSua pontuação foi de " + player.getScore() + " ponto(s).");
         ageView.setText(player.getAge() + " anos de idade");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_result, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.next:
+                Toast.makeText(this, "Continua", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.signo:
+                Toast.makeText(this, "Meu signo", Toast.LENGTH_SHORT).show();
+                return true;
+            default: return super.onOptionsItemSelected(item);
+        }
     }
 }
