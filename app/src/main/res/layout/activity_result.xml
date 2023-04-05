@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginTop="20dp"
-    tools:context=".ResultActivity">
+    tools:context=".activities.ResultActivity">
 
     <TextView
         android:id="@+id/name"

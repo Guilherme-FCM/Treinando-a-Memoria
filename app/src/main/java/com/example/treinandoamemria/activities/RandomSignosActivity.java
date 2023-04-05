@@ -1,4 +1,4 @@
-package com.example.treinandoamemria;
+package com.example.treinandoamemria.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,18 +8,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.treinandoamemria.R;
 import com.example.treinandoamemria.classes.Player;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.stream.Collectors;
 
 public class RandomSignosActivity extends AppCompatActivity {
     private final int time = 1000;

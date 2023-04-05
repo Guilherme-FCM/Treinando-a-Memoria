@@ -1,4 +1,4 @@
-package com.example.treinandoamemria;
+package com.example.treinandoamemria.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,10 +10,11 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.treinandoamemria.R;
 import com.example.treinandoamemria.adapters.ResultAdapter;
 import com.example.treinandoamemria.classes.Player;
 import com.example.treinandoamemria.classes.Result;
-import com.example.treinandoamemria.dialogs.NextDialogFragment;
+import com.example.treinandoamemria.dialogs.NextDialog;
 import com.example.treinandoamemria.dialogs.SignoDialog;
 
 import java.util.ArrayList;
@@ -85,7 +86,7 @@ public class ResultActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.next:
-                NextDialogFragment nextDialog = new NextDialogFragment(this.players);
+                NextDialog nextDialog = new NextDialog(this.players);
                 nextDialog.show(getSupportFragmentManager(), "next-dialog");
                 return true;
             case R.id.signo:

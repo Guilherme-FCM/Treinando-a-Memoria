@@ -9,16 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.example.treinandoamemria.FinalActivity;
-import com.example.treinandoamemria.FormularioActivity;
+import com.example.treinandoamemria.activities.FinalActivity;
+import com.example.treinandoamemria.activities.FormularioActivity;
 import com.example.treinandoamemria.classes.Player;
 
 import java.util.ArrayList;
 
-public class NextDialogFragment extends DialogFragment {
+public class NextDialog extends DialogFragment {
     private ArrayList<Player> players;
 
-    public NextDialogFragment(ArrayList<Player> players) {
+    public NextDialog(ArrayList<Player> players) {
         this.players = players;
     }
 

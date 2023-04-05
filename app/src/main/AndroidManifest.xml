@@ -12,19 +12,19 @@
         android:theme="@style/Theme.TreinandoAMemória"
         tools:targetApi="31">
         <activity
-            android:name=".FinalActivity"
+            android:name=".activities.FinalActivity"
             android:exported="false" />
         <activity
-            android:name=".ResultActivity"
+            android:name=".activities.ResultActivity"
             android:exported="false" />
         <activity
-            android:name=".AnswerActivity"
+            android:name=".activities.AnswerActivity"
             android:exported="false" />
         <activity
-            android:name=".RandomSignosActivity"
+            android:name=".activities.RandomSignosActivity"
             android:exported="false" />
         <activity
-            android:name=".FormularioActivity"
+            android:name=".activities.FormularioActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

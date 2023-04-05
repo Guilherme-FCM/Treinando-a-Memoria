@@ -1,4 +1,4 @@
-package com.example.treinandoamemria;
+package com.example.treinandoamemria.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,9 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.treinandoamemria.R;
 import com.example.treinandoamemria.classes.Player;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 
 public class FormularioActivity extends AppCompatActivity {

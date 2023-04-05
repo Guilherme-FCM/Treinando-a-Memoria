@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginTop="20dp"
-    tools:context=".FinalActivity">
+    tools:context=".activities.FinalActivity">
 
     <TextView
         android:layout_width="wrap_content"
