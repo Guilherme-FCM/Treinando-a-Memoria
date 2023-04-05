@@ -9,18 +9,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.treinandoamemria.adapters.ResultAdapter;
 import com.example.treinandoamemria.classes.Player;
 import com.example.treinandoamemria.classes.Result;
 import com.example.treinandoamemria.dialogs.NextDialogFragment;
+import com.example.treinandoamemria.dialogs.SignoDialog;
 
 import java.util.ArrayList;
 
 public class ResultActivity extends AppCompatActivity {
     private ResultAdapter adapter;
     private ArrayList<Player> players;
+    private Player player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,7 @@ public class ResultActivity extends AppCompatActivity {
             }
         }
 
-        Player player = (Player) it.getSerializableExtra("player");
+        player = (Player) it.getSerializableExtra("player");
 
         // Gera array de resultados
         ArrayList<Result> results = new ArrayList<>();
@@ -84,11 +85,12 @@ public class ResultActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.next:
-                NextDialogFragment dialog = new NextDialogFragment(this.players);
-                dialog.show(getSupportFragmentManager(), "next-dialog");
+                NextDialogFragment nextDialog = new NextDialogFragment(this.players);
+                nextDialog.show(getSupportFragmentManager(), "next-dialog");
                 return true;
             case R.id.signo:
-                Toast.makeText(this, "Meu signo", Toast.LENGTH_SHORT).show();
+                SignoDialog signoDialog = new SignoDialog(player.getSigno());
+                signoDialog.show(getSupportFragmentManager(), "signo-dialog");
                 return true;
             default: return super.onOptionsItemSelected(item);
         }

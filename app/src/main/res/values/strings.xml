@@ -2,6 +2,9 @@
     <string name="app_name">Treinando a Memória</string>
 
     <array name="signos_imagens">
+        <item>@drawable/capricornio</item>
+        <item>@drawable/aquario</item>
+        <item>@drawable/peixe</item>
         <item>@drawable/aries</item>
         <item>@drawable/touro</item>
         <item>@drawable/gemios</item>
@@ -11,12 +14,12 @@
         <item>@drawable/libra</item>
         <item>@drawable/escorpiao</item>
         <item>@drawable/sargitario</item>
-        <item>@drawable/capricornio</item>
-        <item>@drawable/aquario</item>
-        <item>@drawable/peixe</item>
     </array>
 
     <string-array name="signos_nomes">
+        <item>Capricórnio</item>
+        <item>Aquário</item>
+        <item>Peixes</item>
         <item>Áries</item>
         <item>Touro</item>
         <item>Gêmeos</item>
@@ -26,8 +29,5 @@
         <item>Libra</item>
         <item>Escorpião</item>
         <item>Sagitário</item>
-        <item>Capricórnio</item>
-        <item>Aquário</item>
-        <item>Peixes</item>
     </string-array>
 </resources>
