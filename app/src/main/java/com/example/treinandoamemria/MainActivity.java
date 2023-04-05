@@ -21,5 +21,3 @@ public class MainActivity extends AppCompatActivity {
         }, time);
     }
 }
-
-// TODO: Gambiarra Countdown - Answer é gerada se voltar para outra tela no meio da exibição

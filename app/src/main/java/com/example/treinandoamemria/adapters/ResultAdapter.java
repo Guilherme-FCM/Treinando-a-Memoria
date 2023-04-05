@@ -54,6 +54,5 @@ public class ResultAdapter extends BaseAdapter {
                 item.isCorrect() ? R.drawable.correct : R.drawable.incorrect
         );
         return view;
-        // TODO: Alinhas os itens na tabela
     }
 }

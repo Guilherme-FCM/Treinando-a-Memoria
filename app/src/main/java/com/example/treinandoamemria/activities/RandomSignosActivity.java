@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class RandomSignosActivity extends AppCompatActivity {
-    private final int time = 1000;
+    private final int time = 3000;
     private ImageView imageView;
     private TextView textView;
     private TextView countdown;
@@ -41,13 +41,11 @@ public class RandomSignosActivity extends AppCompatActivity {
         for (int i = 0; i < array.length(); i++)
             signos.add(array.getResourceId(i, 0));
         Collections.shuffle(signos);
+        renderCountdown();
         renderImages();
     }
 
-    private void renderImages() {
-        renderCountdown();
-        renderImages(0);
-    }
+    private void renderImages() { renderImages(0); }
     private void renderImages(int position) {
         if (position < signos.size())
             new Handler().postDelayed(() -> {
@@ -67,18 +65,17 @@ public class RandomSignosActivity extends AppCompatActivity {
         }
     }
 
-    // TODO: Melhorar countdown (mais dinâmico)
     private void renderCountdown() {
         new Handler().postDelayed(() -> {
             countdown.setText("3");
         }, 0);
 
-//        new Handler().postDelayed(() -> {
-//            countdown.setText("2");
-//        }, 1000);
-//
-//        new Handler().postDelayed(() -> {
-//            countdown.setText("1");
-//        }, 2000);
+        new Handler().postDelayed(() -> {
+            countdown.setText("2");
+        }, 1000);
+
+        new Handler().postDelayed(() -> {
+            countdown.setText("1");
+        }, 2000);
     }
 }
