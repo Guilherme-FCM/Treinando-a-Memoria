@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.treinandoamemria.adapters.ResultAdapter;
 import com.example.treinandoamemria.classes.Player;
 import com.example.treinandoamemria.classes.Result;
 import com.example.treinandoamemria.dialogs.NextDialogFragment;
