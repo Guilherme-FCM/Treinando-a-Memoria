@@ -39,8 +39,9 @@ public class RandomSignosActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Player player = (Player) intent.getSerializableExtra("player");
+        String mensagem = textView.getText().toString();
         if (player.getName().length() > 0)
-            textView.setText(player.getName() + ", memorize a ordem dos signos!");
+            textView.setText("Olá " + player.getName() + ". Seja muito bem-vindo!\n" + mensagem);
 
         TypedArray array = getResources().obtainTypedArray(R.array.signos_imagens);
         for (int i = 0; i < array.length(); i++)
@@ -71,6 +72,7 @@ public class RandomSignosActivity extends AppCompatActivity {
         }
     }
 
+    // TODO: Melhorar countdown (mais dinâmico)
     private void renderCountdown() {
         new Handler().postDelayed(() -> {
             countdown.setText("3");
